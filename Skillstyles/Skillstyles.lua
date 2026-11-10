@@ -294,7 +294,7 @@ local function InitializeSettings()
 		name = "Skill Styles",
 		displayName = "|cffaa00SkillStyles|r",
 		author = "|ce6202dKwiebe-Kwibus|r",
-		version = tostring(GetAddOnVersion and GetAddOnVersion(ADDON_NAME) or ""),
+		version = "2.0.1",
 		registerForRefresh = true,
 		registerForDefaults = true,
 	}
