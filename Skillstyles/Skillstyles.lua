@@ -3,24 +3,21 @@ local LAM2 = LibAddonMenu2
 
 local SAVEDVARS_VERSION = 1
 local DEFAULTS = {
-	resolutionChoice = "256", "64", "128", "256"
+	resolutionChoice = "256", -- "64", "128", "256"
 }
 
 local SkillStyles_SV = nil
 
 local function GetIconsResolution()
-	if SkillStyles_SV and SkillStyles_SV.resolutionChoice and SkillStyles_SV.resolutionChoice ~= "Flat" then
-		return tostring(SkillStyles_SV.resolutionChoice)
+	local choice = SkillStyles_SV and tostring(SkillStyles_SV.resolutionChoice)
+	if choice == "64" or choice == "128" or choice == "256" then
+		return choice
 	end
-	return nil
+	return DEFAULTS.resolutionChoice
 end
 
 local function GetAddOnIconsPath()
-	local res = GetIconsResolution()
-	if res == nil then
-		return "/Skillstyles/icons/"
-	end
-	return "/Skillstyles/icons/" .. res .. "/"
+	return "/Skillstyles/icons/" .. GetIconsResolution() .. "/"
 end
 
 local ADDON_ICONS = {
